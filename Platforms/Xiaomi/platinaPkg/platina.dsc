@@ -87,7 +87,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2280
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|2280
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|8
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|19
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|120
 
 !include SDM660Pkg/SDM660Pkg.dsc.inc
