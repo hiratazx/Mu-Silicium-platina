@@ -7,8 +7,11 @@ gDeviceMemoryDescriptorEx[] = {
 
   // DDR Regions
   {"Kernel",            0x80000000, 0x05800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"RAM Partition",     0x85800000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
   {"SMEM",              0x86000000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"Display Reserved",  0x9D400000, 0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
+  {"RAM Partition",     0x86200000, 0x0DE00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+  {"DXE Heap",          0x94000000, 0x09400000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+  {"Display Reserved",  0x9D400000, 0x02400000, AddMem, MEM_RES, WRITE_THROUGH, LdData, WRITE_THROUGH_XN},
   {"FV Region",         0x9F800000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"ABOOT FV",          0x9FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"UEFI FD",           0x9FC00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
@@ -19,9 +22,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"DBI Dump",          0x9FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
-  {"DXE Heap",          0xA0000000, 0x09400000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
-  // Other Memory Regions
+  // Other Regions
   {"IMEM Base",          0x14680000, 0x00040000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"IMEM Cookie Base",   0x146BF000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"QDSS_STM",           0x16000000, 0x01000000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
@@ -57,6 +59,35 @@ gDeviceMemoryDescriptorEx[] = {
   {"APCS_GIC500_GICR",   0x17B00000, 0x00100000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"APCS_CC",            0x17800000, 0x00100000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"QDSS",               0x15060000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE },
+
+  // Configuration Map
+  {"NumCpusFuseAddr", 0x5C04C},
+  {"EnableShell", 0x1},
+  {"SharedIMEMBaseAddr", 0x146BF000},
+  {"DloadCookieAddr", 0x01FD3000},
+  {"DloadCookieValue", 0x10},
+  {"MemoryCaptureModeOffset", 0x1C},
+  {"AbnormalResetOccurredOffset", 0x24},
+  {"DBIDumpDDRBase", 0x9FFD0000},
+  {"NumCpus", 4},
+  {"NumActiveCores", 8},
+  {"MaxLogFileSize", 0x400000},
+  {"USBHS1_Config", 0x0},
+  {"UsbFnIoRevNum", 0x00010001},
+  {"PwrBtnShutdownFlag", 0x0},
+  {"Sdc1GpioConfigOn", 0x1E92},
+  {"Sdc2GpioConfigOn", 0x1E92},
+  {"Sdc1GpioConfigOff", 0xA00},
+  {"Sdc2GpioConfigOff", 0xA00},
+  {"EnableSDHCSwitch", 0x1},
+  {"PSHoldOffset", 0xC000},
+  {"PSHoldSHFT", 0x0},
+  {"GCCResetValueAddress", 0x146BF028},
+  {"SecurityFlag", 0xC4},
+  {"TzAppsRegnAddr", 0x86D00000},
+  {"TzAppsRegnSize", 0x02200000},
+  {"EnableLogFsSyncInRetail", 0x1},
+  {"EnableSecurityHoleForSplashPartition", 0x1},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}
