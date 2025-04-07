@@ -1,6 +1,3 @@
-[submodule "Binaries"]
-	path = Binaries
-	url = https://github.com/hiratazx/Mu-Device-Binaries.git
 [submodule "Silicium-ACPI"]
 	path = Silicium-ACPI
 	url = https://github.com/Project-Silicium/Silicium-ACPI.git
