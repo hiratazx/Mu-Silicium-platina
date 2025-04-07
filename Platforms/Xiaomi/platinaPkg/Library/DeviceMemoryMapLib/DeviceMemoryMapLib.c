@@ -87,7 +87,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"TzAppsRegnAddr", 0x86D00000},
   {"TzAppsRegnSize", 0x02200000},
   {"EnableLogFsSyncInRetail", 0x1},
-  {"EnableSecurityHoleForSplashPartition", 0x1},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}
